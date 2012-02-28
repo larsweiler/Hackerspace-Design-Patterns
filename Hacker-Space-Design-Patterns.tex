@@ -1,0 +1,682 @@
+\documentclass[mathserif]{beamer}
+
+\mode<presentation>
+{
+	\usetheme[compress]{Ilmenau}
+	\useinnertheme{circles}
+	\usecolortheme{c4}
+	%\setbeamercovered{transparent}
+	%\setbeamercovered{highly dynamic}
+}
+
+
+\usepackage[english]{babel}
+\usepackage{ucs}
+\usepackage[utf8x]{inputenc}
+\PrerenderUnicode{ßüöäÜÖÄ„“…}
+\usepackage[T1]{fontenc}
+
+\newenvironment{itemizeframe}[1]
+	{\begin{frame}{#1}\startitemizeframe}
+	{\stopitemizeframe\end{frame}}
+\newcommand\startitemizeframe{\begin{itemize}}
+\newcommand\stopitemizeframe{\end{itemize}}
+
+
+\title[A Hacker Space Design Pattern Catalogue]{\textbf{Building a Hacker Space}}
+
+\author[J.~Ohlig, L.~Weiler]{%
+	Jens Ohlig~\flq jens@ccc.de\frq \and Lars Weiler~\flq pylon@ccc.de\frq}
+
+\institute[24C3]{24th Chaos Communication Congress}
+
+\date[]{December 27, 2007}
+
+\pgfdeclareimage[height=2.5cm]{labor}{pics/Labor-Panorama_(2006-09-15)}
+\pgfdeclareimage[height=0.4cm]{CC-BY-NC-SA}{../CC-BY-NC-SA}
+\titlegraphic{\pgfuseimage{labor}\\\href{http://creativecommons.org/licenses/by-nc-sa/2.0/de/}{\pgfuseimage{CC-BY-NC-SA}}}
+
+\pgfdeclareimage[height=0.8cm]{pesthoernchen}{../Pesthoernchen}
+\logo{\pgfuseimage{pesthoernchen}}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\AtBeginSubsection[]
+{
+	\begin{frame}{Outline}
+		\tableofcontents[currentsection,currentsubsection]
+	\end{frame}
+}
+
+\begin{frame}{Outline}
+  \tableofcontents[hideallsubsections]
+  % Die Option [pausesections] könnte nützlich sein.
+\end{frame}
+
+\section{Introduction}
+
+\subsection{Who we are}
+
+\begin{frame}{The speakers}
+	\begin{columns}
+		\column{.5\textwidth}
+		\center{\underline{Jens}}
+		\begin{itemize}
+			\item Co-Founder of Chaos Computer Club Cologne (C4)
+			\item Still active there
+			\item CCC-activist for more than 15 years
+			\item CCC-spokesman, board-member etc.
+		\end{itemize}
+		\column{.5\textwidth}
+		\center{\underline{Pylon}}
+		\begin{itemize}
+			\item Co-Founder of Chaos Computer Club Düsseldorf (Chaosdorf)
+			\item Now active in Cologne
+			\item CCC-activist for more than eight years
+			\item CCC-spokesman, board-member etc.
+		\end{itemize}
+	\end{columns}
+\end{frame}
+
+\begin{itemizeframe}{Chaos Computer Club Cologne}
+	\item Founded in 1997
+	\item around 42 members
+	\item currently in Version 3.5 of our hacker space, operational in that
+		location since 1999
+	\item All pictures in this presentation has been taken in the C4 hacker space
+\end{itemizeframe}
+
+% Warum?
+
+\subsection{Why this catalogue?}
+
+\begin{itemizeframe}{Thanks to the August 2007 hacker space tour}
+	\item A group of American hackers visited hacker spaces in Germany and Austria
+	\item They wanted to know how our European hacker spaces work
+	\item After the Camp they visited a couple of hacker spaces
+	\item Every hacker space did a presentation about their history
+	\item We created some Design Patterns
+\end{itemizeframe}
+
+\begin{itemizeframe}{Design Patterns}
+	\item Historically used for urban planning
+	\item Transfered for typical situations in software development
+	\item Problem $\rightarrow$ Implementation
+\end{itemizeframe}
+
+\begin{itemizeframe}{What we want to tell you}
+	\item We want to share our knowledge of building our own hacker space
+	\item We won't give you a detailed manual
+	\item Your mileage may vary
+\end{itemizeframe}
+
+% Design-Patterns
+
+\section[Design Patterns]{The Hacker Space Design Patterns Catalogue}
+
+\subsection{Sustainability Patterns}
+
+\begin{frame}{The Infrastructure Pattern}
+	\begin{alertblock}{Problem}
+		You have a chicken-and-egg-problem: What should come first?  Infrastructure
+		or projects?
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		Make everything \textbf{infrastructure-driven}.  Rooms, power, servers,
+		connectivity, and other facilities come first.  Once you have that, people
+		will come up with the most amazing projects you didn't think about in the
+		first place.
+	\end{exampleblock}
+\end{frame}
+
+\pgfdeclareimage[width=\textwidth]{noc}{pics/crw_0713_round}
+\begin{frame}[plain]{NOC with Server Racks}
+	\begin{center}
+		\pgfuseimage{noc}
+	\end{center}
+\end{frame}
+
+\begin{frame}{The Grace Hopper Pattern}
+	\begin{alertblock}{Problem}
+		Is now really the time to start your hacker space?  Shouldn't you wait?
+		Have you really thought of all the problems?
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		\textbf{Sure it is the time!}
+		\begin{quote}
+			It's always easier to ask forgiveness than it is to get permission.
+		\end{quote}
+		(Grace Hopper, US Navy Rear Admiral and computer scientist)
+
+		It's important to start.  Many problems you think of before will vanish as
+		soon as you get started.  \textbf{When in doubt, do it!}
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{The Community Pattern}
+	\begin{alertblock}{Problem}
+		How should your group communicate?
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		You are hackers, you know what to do.  Stop slacking and set up a mailing
+		list, a wiki, and an IRC channel.  You will need all three.  Think about a
+		\textbf{platform for discussion}, storage for \textbf{documentation}
+		and \textbf{real-time communication}.
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{The Critical Mass Pattern}
+	\begin{alertblock}{Problem}
+		You want to set up a hacker space in your city alone.  You fail.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		The rule of thumb is \textbf{2\,+\,2}.  You need a partner to get the initial
+		idea kicked off, making two of you.  You need two more people in order to
+		get real work done.  Don't start before you are at least four people.  From
+		this point it's easy to recruit more people.  \textbf{Aim for ten people} for
+		a start.
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{The Strong Personalities Pattern}
+	\begin{alertblock}{Problem}
+		Nothing gets done.  You all want the hacker space, but it's so hard to get
+		off your asses.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		Look for \textbf{strong personalities} as members of your original group.
+		You will need people with \textbf{experience in building structures}.  Look
+		for people who \emph{have} authority (and get respect), not for people who
+		\emph{use} authority (and get laughed at).
+	\end{exampleblock}
+\end{frame}
+
+
+\subsection{Independence Patterns}
+
+\begin{frame}{The Landlord and Neighbourhood Pattern}
+	\begin{alertblock}{Problem}
+		You have found the perfect hacker space, but the landlord seems to be weird.
+		Also, the neighbours are picky.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		Choose wisely.  A benevolent, but \textbf{uninterested landlord} and
+		\textbf{cool neighbours} can be the decisive reasons why the hacker space
+		takes off or not.  Not so cool neighbours may call the cops at 2~AM.
+		Depending on your projects, this may be a serious problem.  As hackers you
+		do not live the majority lifestyle---look for neighbours who are also weird
+		and outside the majority.
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{The Roommate Anti-Pattern}
+	\begin{alertblock}{Problem}
+		You need a space for meetings and as a lab, to store and work on materials
+		for projects.  In order to minimize rent or out of sympathy, you think it's
+		great when someone lives in your space. But somehow it doesn't work, as you
+		cannot use the lab anymore.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		Guest are fine, but \textbf{don't let anyone live there}.  Kick them out if
+		necessary.
+	\end{exampleblock}
+\end{frame}
+
+\pgfdeclareimage[height=1.5cm]{plenarsaal}{pics/Plenarsaal-Panorama_(2006-09-26)_round}
+\begin{frame}{The Séparée Pattern}
+	\begin{alertblock}{Problem}
+		You want to chill, discuss, or work in small groups.  But the main room is
+		occupied: There are simply too many people at your space.  Or you want to
+		smoke a cigarette at the space without disturbing non-smokers.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		Look for a hacker space with \textbf{smaller, separate rooms}.  Use
+		\textbf{curtains} or \textbf{doors} to separate them from the main room.
+		Separate rooms can also be used for smokers in a non-smoking hacker space.
+	\end{exampleblock}
+	\begin{center}
+		\pgfuseimage{plenarsaal}
+	\end{center}
+\end{frame}
+
+\begin{frame}{The Kitchen Pattern}
+	\begin{alertblock}{Problem}
+		As a human being, you need food.  As a hacker, you need caffeine and food at
+		odd times.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		Have a \textbf{kitchen} at your space.  Nothing brings people together like
+		\textbf{cooking} together.  Have \textbf{fridges} for Club-Mate.  Selling
+		soft-drinks will help you raise money for the rent.  Invest in the single
+		most important piece of hardware: a \textbf{dishwasher}.  Have a
+		\textbf{freezer} for pizzas and buy decent \textbf{kitchen equipment}.  Show
+		nerds how to cook \textbf{real food}.
+	\end{exampleblock}
+\end{frame}
+
+\pgfdeclareimage[width=\textwidth]{kitchen}{pics/crw_0716_round}
+\begin{frame}[plain]{The Kitchen}
+	\begin{center}
+		\pgfuseimage{kitchen}
+	\end{center}
+\end{frame}
+
+\begin{frame}{The Coziness Pattern}
+	\begin{alertblock}{Problem}
+		All work and no play makes Jack a dull boy.  There must be something else
+		than only workstations and electronics.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		Bring in \textbf{couches, sofas, comfortable chairs, tables, ashtrays,
+		ambient light,} \textbf{stereo equipment, a projector, and video game consoles}.
+		Bringing in plants didn't work for us.
+	\end{exampleblock}
+\end{frame}
+
+\pgfdeclareimage[width=\textwidth]{fnordcenter}{pics/crw_0712_round}
+\begin{frame}[plain]{The Fnordcenter}
+	\begin{center}
+		\pgfuseimage{fnordcenter}
+	\end{center}
+\end{frame}
+
+\pgfdeclareimage[height=7cm]{leaves}{pics/plant-leaves_round}
+\pgfdeclareimage[height=7cm]{no-leaves}{pics/plant-no-leaves_round}
+\begin{frame}[plain]{Our Poor Plant Named “Egor”…}
+	\begin{columns}
+		\column{.5\textwidth}
+			\begin{center}
+				\pgfuseimage{leaves}\\
+				Sep. '06
+			\end{center}
+		\column{.5\textwidth}
+			\begin{center}
+				\pgfuseimage{no-leaves}\\
+				Dec. '07
+			\end{center}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}{The Shower Pattern}
+	\begin{alertblock}{Problem}
+		After long hacking sessions, you will start to smell funny.  Also, guests to
+		your space seem to neglect personal hygiene.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		The discriminate hacker space has a \textbf{bathroom with a shower}.  After a
+		long hacking night you'll have the best ideas while taking a shower.  Guests
+		from other hacker spaces may stay for several days.  Ideally you will buy a
+		\textbf{washing machine} to get rid of all the smelly towels.
+	\end{exampleblock}
+\end{frame}
+
+\pgfdeclareimage[width=\textwidth]{shower}{pics/crw_0718_round}
+\begin{frame}[plain]{The Bathroom (extract)}
+	\begin{center}
+		\pgfuseimage{shower}
+	\end{center}
+\end{frame}
+
+\begin{frame}{The Membership Fees Pattern}
+	\begin{alertblock}{Problem}
+		You need to pay your rent and utilities.  Larger projects need to be funded.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		\textbf{Collect fees regularly}.  Make no exceptions, ever.  Choose an
+		appropriate amount.  Have discounts for students.  Have at least three
+		months of rent on your account, all the time, no exceptions.  Elect a
+		totalitarian treasurer.
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{The Sponsoring Anti-Pattern}
+	\begin{alertblock}{Problem}
+		You think it's a good idea to meet at a company that likes you or at a
+		university where most of you study anyway.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		\textbf{Never ever depend} your space \textbf{on external sponsors}.
+		Donations are great, but remember that companies can go bankrupt and you
+		won't be a student forever.  Meeting at a university will exclude
+		high-school kids or people who don't like the university culture.  No
+		company, no matter how nice, will give away presents forever without asking
+		for favours in return.  That's capitalism…
+	\end{exampleblock}
+\end{frame}
+
+
+\subsection{Regularity Patterns}
+
+\begin{frame}{The Plenum Pattern}
+	\begin{alertblock}{Problem}
+		You want to resolve internal conflicts, exercise democratic
+		decision-making, and discuss recent issues and future plans.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		Have a \textbf{regular meeting} with possibly all members.  Have an
+		\textbf{agenda} and \textbf{set goals}.  Make people commit themselves to
+		tasks.  Write down \textbf{minutes of the meeting} and post them on a mailing
+		list and/or Wiki.  Go for the only date that works: \textbf{once a week}.
+		Weird dates like “first full-moon after the third Friday” will never work.
+		Likewise doesn't every other week or anything similar.
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{The Tuesday Pattern}
+	\begin{alertblock}{Problem}
+		Every weekday sucks.  You will not find any day when every hacker can attend
+		a meeting.  Someone always has an appointment.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		\textbf{Meet on Tuesday}.  Since all days are equally bad, just pick the
+		Tuesday.  End of discussion.
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{The OpenChaos Pattern}
+	\begin{alertblock}{Problem}
+		You want to draw in new people and provide an interface to the outside
+		world.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		Have a \textbf{monthly, public, and open lecture, talk or workshop}.
+		Announce it at your local time (no UTC, CEST, EST or something else).
+		Invite interesting visitors to your regular meetings and don't tell the
+		weirdos about them.	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{The U23 Pattern}
+	\begin{alertblock}{Problem}
+		Your older members graduate from college or get married.  Your space needs
+		fresh blood.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		Recruit young people through a \textbf{challenge} you set up for them, in
+		form of a \textbf{course that spans several weeks}.  Overwhelm them with
+		problems from hardware and software hacking and let them solve it in teams.
+		Prepare for the challenge and \textbf{tutor them}, but give them room to
+		experiment.  Retire after the team-building and let the smartest of the
+		young ones run the space.
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{The Sine Curve Pattern}
+	\begin{alertblock}{Problem}
+		You did everything right.  You had some big events and a nice time in your
+		shiny hacker space.  But after some time the enthusiasm goes away and your
+		projects are stagnating.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		Peak enthusiasm at a hacker space has the form of a \textbf{sine curve with
+		a cycle duration of four years}.  Keep the hacker space running, even if the
+		feel-good-factor is temporarly on holidays.  Chances are your space will be
+		awesome again in two years.  \textbf{Don't give up!}  Maybe an exciting new
+		member will knock on your door tomorrow.
+	\end{exampleblock}
+\end{frame}
+
+
+\subsection{Conflict Resolution Patterns}
+
+\begin{frame}{The Consensus Pattern}
+	\begin{alertblock}{Problem}
+		You need a group decision and want to make sure no one gets left behind.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		Use the weekly plenum for discussion. Don't take votes---\textbf{discuss
+		until everyone agrees}.
+
+		For some problems this pattern is the best.
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{The Democracy Pattern}
+	\begin{alertblock}{Problem}
+		You need to make a group decision.  Discussion does not seem to lead you
+		anywhere.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		Use the weekly plenum for discussion.  Do take votes---\textbf{the strongest
+		minority wins over the weaker minorities}.
+
+		For some problems this pattern is the best.
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{The Command Pattern}
+	\begin{alertblock}{Problem}
+		Nobody does the dishes.  Your hacker space looks crappy.  No one seems to
+		care.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		\textbf{Order people} to do the dishes, take out the trash, keep the
+		infrastructure up and running.  \textbf{Yell, if necessary!  But always participate}.
+
+		For some problems this pattern is the best.
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{The \texttt{sudo leadership} Pattern}
+	\begin{alertblock}{Problem}
+		You started as a community of like-minded people, but suddenly you find
+		yourself in a dictatorship run by a single hacker.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		Do not have ranks.  \textbf{Use leadership temporarily}, like for projects
+		and when you really need it.  \textbf{Don't have a single root}.
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{The Responsibility Pattern}
+	\begin{alertblock}{Problem}
+		You volunteered for the task of running a critical piece of infrastructure,
+		e.g. the mail server, but you feel the sudden urge to slack.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		Just because volunteer work doesn't get paid doesn't mean it's less
+		important.  Remember that you will directly hurt your friends and the hacker
+		space.  \textbf{Take pride in your volunteer work}.  It will make you grow
+		stronger as a person and is satisfying.  When you realise that you really
+		cannot do the job any more, \textbf{your last task is to hand it over}.
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{The Debate Culture Pattern}
+	\begin{alertblock}{Problem}
+		You are in the middle of your weekly plenum.  Everybody's yelling, nothing
+		gets done.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		Many geeks have very poor debate skills, the result of years of flame wars
+		on the Net.  Make \textbf{people with actual social skills lead the
+		discussion}.  Those with a background in real-life political work (e.g.
+		student council) were best for our group.  \textbf{Learn from them}.
+		\textbf{Learn not to interrupt others}.
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{The Bikeshed Anti-Pattern}
+	\begin{alertblock}{Problem}
+		You suggest creating something new for your hacker space, like a bikeshed.
+		But now everybody discuss about it's colour.  No bikeshed will be built.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		That's a known problem.  If you suggest something what everybody else in
+		your hacker space can build, \textbf{they will take part in the
+		discussion}.  And if it's only the colour of the bikeshed, the design of the
+		T-shirts, the Linux-distribution on the server, etc.  Nerds tend to discuss
+		trivial problems in epic detail, while more complex tasks will be ignored.
+		\textbf{Identify pointless discussion} like these and just end them.
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}[plain]{History of the Bikeshed-Problem}
+	\begin{quote}
+		C. Northcote Parkinson wrote a book in the early 1960s, called “Parkinson's
+		Law”, which contains a lot of insight into the dynamics of management.\\
+		\[…\]\\
+		In the specific example involving the bike shed, the other vital component
+		is an atomic power-plant, I guess that illustrates the age of the book.
+		Parkinson shows how you can go into the board of directors and get approval
+		for building a multi-million or even billion dollar atomic power plant, but
+		if you want to build a bike shed you will be tangled up in endless
+		discussions.
+	\end{quote}
+
+	see \url{http://www.bikeshed.com/}
+\end{frame}
+
+\begin{frame}{The Private Talk Pattern}
+	\begin{alertblock}{Problem}
+		Someone causes a problem that cannot be resolved in the group.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		Let some experienced member of your group \textbf{talk} to the trouble-maker
+		\textbf{in private}.  \textbf{Listen to the person}.  Let them know how the
+		group feels about the problem without exposing them in front of the group.
+	\end{exampleblock}
+\end{frame}
+
+
+\subsection{Creative Chaos Patterns}
+
+\begin{frame}{The Old Hardware Pattern}
+	\begin{alertblock}{Problem}
+		You can't bring in shiny new hardware, as there is no space left.  Your
+		space has become a hardware museum filled with junk.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		Create a \textbf{pile/stack} where you put that old, unused hardware on.
+		Let everybody take from it.  Anything left within a while \textbf{should
+		be thrown away}.  But make sure you \textbf{announce that step} not only
+		once, but at least three times with an escalation system.
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}[plain]{(Sorry, in German only)}
+	\begin{quote}
+		\textbf{Bereitstellung von Hardware im Chaoslabor}
+
+		§1 Das Chaoslabor ist ein Bereich vorbildlicher Ordnung und Sauberkeit, in
+		dem der Chaos Computer Club Cologne e.V. seine Vereinstätigkeit ausübt.
+
+		§2 Unter Aufräumpersonal werden Personen verstanden, die sich um den
+		Zustand des Clubraumes kümmern. Aufräumpersonal genießt Heldenstatus und
+		Immunität gegenüber Anfeindungen von Besitzern nicht funktionierender
+		Hardware.
+
+		\[…\]\\
+	\end{quote}
+	see \url{http://wiki.koeln.ccc.de/index.php?title=Hacker_Space/Hardware-Gesetz}
+\end{frame}
+
+\pgfdeclareimage[width=\textwidth]{stack}{pics/crw_0723_round}
+\begin{frame}[plain]{A Stack of Old Hardware}
+	\begin{center}
+		\pgfuseimage{stack}
+	\end{center}
+\end{frame}
+
+\begin{frame}{The Key Pattern}
+	\begin{alertblock}{Problem}
+		You want the hacker space accessable all the time.  You don not want to call
+		somebody else during night to lock the hacker space when you leave.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		\textbf{Hand out keys}.  Track who owns a key.  \textbf{Have a good
+		lock} so that nobody can copy the key without your permission.  Collect a
+		deposit for the key, so that the owner takes care for it.  Or build a nice
+		electronic locking system (with all cool things and all messy problems)…
+	\end{exampleblock}
+\end{frame}
+
+\begin{frame}{The Club Mate Pattern}
+	\begin{alertblock}{Problem}
+		You need to raise funds.  You want to stay up longer during night.  You want
+		to receive really good impressions without drugs.
+	\end{alertblock}
+	\pause
+	\begin{exampleblock}{Implementation}
+		Buy at least one pallet of \textbf{Club-Mate} and sell it in your hacker
+		space.  You will realise the results very soon!
+	\end{exampleblock}
+\end{frame}
+
+\pgfdeclareimage[width=\textwidth]{club-mate}{pics/crw_0727_round}
+\begin{frame}[plain]{Golden Club-Mate}
+	\begin{center}
+		\pgfuseimage{club-mate}
+	\end{center}
+\end{frame}
+
+
+\section{Conclusion}
+
+\subsection{This is not a cookbook}
+\begin{itemizeframe}{Conclusion}
+	\item There is no “golden way” building up a hacker space
+	\item Based on experience there are a couple of patterns which might match
+	\item Be creative!  Try out your own way!
+		\vspace{2em}
+	\item Question \& Answer session @24C3: Day 1, 17:15, Workshoproom A
+\end{itemizeframe}
+
+\subsection{Find your nearest Hacker Space}
+\begin{frame}{Hacker Spaces (not complete)}
+	Germany, Austria, Switzerland:
+	\begin{itemize}
+		\item CCC-based $\rightarrow$ \url{http://www.ccc.de/regional/}
+		\item Netzladen $\rightarrow$ \url{http;//www.netzladen.org/}
+		\item Das Labor $\rightarrow$ \url{http://www.das-labor.org/}
+		\item c-base $\rightarrow$ \url{http://www.c-base.org/}
+	\end{itemize}
+	USA:
+	\begin{itemize}
+		\item NYC Resistor $\rightarrow$ \url{http://www.nycresistor.com/}
+		\item Seattle
+		\item San Francisco
+		\item L.A.
+	\end{itemize}
+	Australia:
+	\begin{itemize}
+		\item TheHacktory $\rightarrow$ \url{http://thehacktory.com/}
+	\end{itemize}
+\end{frame}
+
+\end{document}
+
+
